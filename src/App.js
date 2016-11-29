@@ -1,18 +1,18 @@
 /* @flow */
-import Provisioner from './Provisioner';
 import Stats from './utils/Stats';
 import CostEstimation from './utils/CostEstimation';
 import Throughput from './utils/Throughput';
 import CapacityCalculator from './CapacityCalculator';
 import { json, stats, log, invariant } from './Global';
 import type { UpdateTableRequest } from 'aws-sdk-promise';
+import TableBasedProvisioner from './TableBasedProvisioner';
 
 export default class App {
-  _provisioner: Provisioner;
+  _provisioner: TableBasedProvisioner;
   _capacityCalculator: CapacityCalculator;
 
   constructor() {
-    this._provisioner = new Provisioner();
+    this._provisioner = new TableBasedProvisioner();
     this._capacityCalculator = new CapacityCalculator();
   }
 
