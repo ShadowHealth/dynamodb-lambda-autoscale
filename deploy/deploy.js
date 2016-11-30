@@ -128,10 +128,15 @@ var addLambdaToRule = function(lambdaName, lambdaArn, ruleArn, ruleName, callbac
   //noinspection JSUnusedLocalSymbols
   lambda.addPermission(addPermissionParams, function (err, data) {
     if(err){
-      callback(err);
-      return;
+      if(err.Code != 'ResourceConflictException'){
+        console.log("Permission was already added");
+      } else {
+        callback(err);
+        return;
+      }
+    } else {
+      console.log("Added permission to lambda");
     }
-    console.log("Added permission to lambda");
     var putTargetsParams = {
       Rule: ruleName,
       Targets: [

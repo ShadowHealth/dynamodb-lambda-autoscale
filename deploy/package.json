@@ -1,11 +1,11 @@
 {
-  "name": "lambda_helper",
+  "name": "autoscale_helper",
   "version": "1.0.0",
-  "description": "Code for creating and updating the lambda functions for running the saved state microservice",
+  "description": "Code for creating and updating the auto scale functions in amazon",
   "author": "Colton White",
   "dependencies": {
-    "aws-sdk": "^2.5.4",
-    "command-line-args": "^3.0.1",
-    "exit-code": "^1.0.2"
+    "aws-sdk": "2.5.4",
+    "command-line-args": "3.0.1",
+    "exit-code": "1.0.2"
   }
 }
