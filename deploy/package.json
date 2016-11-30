@@ -1,0 +1,11 @@
+{
+  "name": "autoscale_helper",
+  "version": "1.0.0",
+  "description": "Code for creating and updating the auto scale functions in amazon",
+  "author": "Colton White",
+  "dependencies": {
+    "aws-sdk": "2.5.4",
+    "command-line-args": "3.0.1",
+    "exit-code": "1.0.2"
+  }
+}
