@@ -184,7 +184,7 @@ var createCloudWatchEvent = function (ruleName, callback) {
   });
 };
 
-var fileLocation = path.join(__dirname, "../Dist.zip");
+var fileLocation = path.join(__dirname, "../dist.zip");
 fs.readFile(fileLocation, function (err, fileData ) {
   if(err){
     console.log("Could not find file at path " + fileLocation);
