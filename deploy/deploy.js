@@ -105,6 +105,7 @@ var createFunction = function (codeData, ruleArn, ruleName, callback) {
     lambda.createFunction(params, function (err, data) {
       if (err) {
         console.log('error creating function');
+        console.log('Input params were ' + JSON.stringify(params));
         console.log(err);
         process.exitCode = 2;
         callback(err);
