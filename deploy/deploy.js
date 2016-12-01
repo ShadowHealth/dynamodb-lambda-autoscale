@@ -179,6 +179,11 @@ var createCloudWatchEvent = function (ruleName, callback) {
     State: 'ENABLED'
   };
   cloudWatchEvents.putRule(params, function (err, data) {
+    if(err){
+      console.log("Error putting rule " + err);
+      callback(err);
+      return;
+    }
     console.log('Finished creating rule');
     callback(err, data.RuleArn);
   });
