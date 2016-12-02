@@ -28,10 +28,19 @@ var updateAlarms = function (table, config) {
   cloudwatch.describeAlarms(req)
   .on('success', function(response){
     alarms = response.data.MetricAlarms;
-      // get which max value should be used for this specific alarm
-    var maxValues = [config.ReadCapacity.Max, config.WriteCapacity.Max];
+
+    /*
+     * Get which max value should be used for this specific alarm.
+     *
+     * DynamoDB normally configures the alarm to be capacity / 60, which is
+     * too low for our needs, so we compensate to get the value we want.
+     */
+    var maxReadCapacity = Math.floor(config.ReadCapacity.Max * 60);
+    var maxWriteCapacity = Math.floor(config.WriteCapacity.Max * 60);
+    var maxValues = [maxReadCapacity, maxWriteCapacity];
+
     if (/WriteCapacity/.test(alarms[0].AlarmName)) {
-      maxValues = [config.WriteCapacity.Max, config.ReadCapacity.Max];
+      maxValues = [maxWriteCapacity, maxReadCapacity];
     }
 
     async.series([
