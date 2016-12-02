@@ -29,7 +29,7 @@ var updateAlarms = function (table, config) {
   .on('success', function(response){
     alarms = response.data.MetricAlarms;
 
-    /*
+    /**
      * Get which max value should be used for this specific alarm.
      *
      * DynamoDB normally configures the alarm to be capacity / 60, which is
