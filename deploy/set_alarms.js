@@ -35,8 +35,8 @@ var updateAlarms = function (table, config) {
      * DynamoDB normally configures the alarm to be capacity / 60, which is
      * too low for our needs, so we compensate to get the value we want.
      */
-    var maxReadCapacity = Math.floor(config.ReadCapacity.Max * 60);
-    var maxWriteCapacity = Math.floor(config.WriteCapacity.Max * 60);
+    var maxReadCapacity = config.ReadCapacity.Max * 60;
+    var maxWriteCapacity = config.WriteCapacity.Max * 60;
     var maxValues = [maxReadCapacity, maxWriteCapacity];
 
     if (/WriteCapacity/.test(alarms[0].AlarmName)) {
