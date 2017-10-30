@@ -1,7 +1,6 @@
 [
   {
     "tables": [
-      "unity_saved_state_data_dev",
       "unity_saved_state_data_staging",
       "unity_saved_state_data_mirror"
     ],
