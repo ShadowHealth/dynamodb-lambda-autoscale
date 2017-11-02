@@ -1,7 +1,7 @@
 [
   {
     "tables": [
-      "unity_saved_state_data_production"
+      "placeholder"
     ],
     "configuration":{
       "ReadCapacity": {
